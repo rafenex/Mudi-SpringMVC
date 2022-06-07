@@ -18,7 +18,7 @@ public class HomeController {
 		pedido.setNomeProduto("CADEIRA GAMER PICHAU OMEGA");
 		pedido.setUrlImagem("https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/p/g/pg-omg-blu01.jpg");
 		pedido.setUrlProduto("https://www.pichau.com.br/cadeira-gamer-pichau-omega-azul-e-dourada-pg-omg-blu01");
-		pedido.setDescricao("Cadeira gamer azul e dourada");
+		pedido.setDescricao("Cadeira gamer azul e dourada! !");
 		
 		List<Pedido> pedidos = Arrays.asList(pedido); 
 		model.addAttribute("pedidos",pedidos);
