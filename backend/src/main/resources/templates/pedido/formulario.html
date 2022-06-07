@@ -13,29 +13,30 @@
 		<div class="jumbotron mb-0">
 			<h1 class="display-4">Novo Pedido</h1>
 		</div>
-		
-		<form action="/pedido/novo" method="POST">
-			<div>
-				<label for="nomePrdoduto">Produto</label>
-				<input name="nomeProduto" placeholder="Nome do produto"/>
-				<small>Informe o nome do produto</small>
-			</div>
-			<div>
-				<label for="urlPrdoduto">URL</label>
-				<input name="urlProduto" placeholder="URL do produto"/>
-				<small>Procure em um site o produto que você deseja e cole a URL da página aqui.</small>
-			</div>
-			<div>
-				<label for="urlImagem">Imagem</label>
-				<input name="urlImagem" placeholder="URL da imagem"/>
-				<small>Procure em um site o produto que você deseja e cole a URL da página aqui.</small>
-			</div>
-			<div>
-				<label for="descricao">Descrição</label>
-				<textarea name="descricao" placeholder="Adicione detalhes importantes para ajudar o comprador"></textarea>
-			</div>
-			<button type="submit">Cadastrar</button>
-		</form>
+		<div class="card mt-3">
+			<form th:object="${requisicaoNovoPedido}" class="card-body" action="/pedido/novo" method="POST">
+				<div class = "form-group">
+					<label for="nomePrdoduto">Produto</label>
+					<input th:field="*{nomeProduto}" class = "form-control" placeholder="Nome do produto"/>
+					<small>Informe o nome do produto</small>
+				</div>
+				<div class = "form-group">
+					<label for="urlPrdoduto">URL</label>
+					<input th:field="*{urlProduto}" class = "form-control" placeholder="URL do produto"/>
+					<small>Procure em um site o produto que você deseja e cole a URL da página aqui.</small>
+				</div>
+				<div class = "form-group">
+					<label for="urlImagem">Imagem</label>
+					<input th:field="*{urlImagem}" class = "form-control" placeholder="URL da imagem"/>
+					<small>Procure em um site o produto que você deseja e cole a URL da página aqui.</small>
+				</div>
+				<div class = "form-group">
+					<label for="descricao">Descrição</label>
+					<textarea class = "form-control"  name="descricao" placeholder="Adicione detalhes importantes para ajudar o comprador"></textarea>
+				</div>
+				<button class="btn btn-primary" type="submit">Cadastrar</button>
+			</form>
+		</div>
 	</div>
 </body>
 
