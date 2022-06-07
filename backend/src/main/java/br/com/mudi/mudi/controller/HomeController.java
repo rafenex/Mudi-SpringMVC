@@ -15,11 +15,11 @@ import br.com.mudi.mudi.repository.PedidoRepository;
 	public class HomeController {
 		
 	@Autowired
-	private PedidoRepository repository;
+	private PedidoRepository pedidoRepository;
 	
 	@GetMapping("/home")
 	public String home(Model model) {
-			List<Pedido> pedidos = repository.recuperaTodosOsPedios();
+			List<Pedido> pedidos = pedidoRepository.findAll();
 			model.addAttribute("pedidos",pedidos);
 			return "home";
 		}
