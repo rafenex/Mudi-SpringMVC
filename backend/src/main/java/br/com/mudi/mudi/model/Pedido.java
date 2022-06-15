@@ -12,6 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 public class Pedido {
 	@Id
@@ -27,6 +31,7 @@ public class Pedido {
 	@Enumerated(EnumType.STRING)
 	private StatusPedido status;	
 	
+	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
 	
