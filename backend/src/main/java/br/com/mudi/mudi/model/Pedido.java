@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -38,6 +39,7 @@ public class Pedido {
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
 	
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "pedido", fetch = FetchType.LAZY) //Cascade, quando eu salvar um pedido ele ja vai salvar a nova oferta
 	private List<Oferta>ofertas;
 	
