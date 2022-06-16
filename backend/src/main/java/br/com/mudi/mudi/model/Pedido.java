@@ -2,7 +2,9 @@ package br.com.mudi.mudi.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -11,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -35,10 +38,18 @@ public class Pedido {
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
 	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "pedido", fetch = FetchType.LAZY) //Cascade, quando eu salvar um pedido ele ja vai salvar a nova oferta
+	private List<Oferta>ofertas;
 	
 	
 	
 	
+	public List<Oferta> getOfertas() {
+		return ofertas;
+	}
+	public void setOfertas(List<Oferta> ofertas) {
+		this.ofertas = ofertas;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -93,6 +104,9 @@ public class Pedido {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	
+	
 
 
 }
